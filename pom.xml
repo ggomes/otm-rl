@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>edu.berkeley.ucbtrans</groupId>
+    <artifactId>otm-rl</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>otm-rl</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:ggomes/otm-rl.git</connection>
+        <developerConnection>scm:git:git@github.com:ggomes/otm-rl.git</developerConnection>
+        <url>git@github.com:ggomes/otm-rl.git</url>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>myMavenRepoOTM</id>
+            <url>${myMavenRepoOTMReadUrl}</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>myMavenRepoOTM</id>
+            <url>${myMavenRepoOTMWriteUrl}</url>
+        </repository>
+        <snapshotRepository>
+            <id>myMavenRepoOTM</id>
+            <url>${myMavenRepoOTMWriteUrl}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- MAVEN COMPILER  -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <!-- BURLAP -->
+        <dependency>
+            <groupId>edu.brown.cs.burlap</groupId>
+            <artifactId>burlap</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <!-- OTM SIMULATOR -->
+        <dependency>
+            <groupId>edu.berkeley.ucbtrans</groupId>
+            <artifactId>otm-sim</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- JUNIT -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
